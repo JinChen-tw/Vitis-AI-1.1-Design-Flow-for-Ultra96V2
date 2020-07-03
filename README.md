@@ -55,6 +55,11 @@ jin2@ubuntu:/workspace$
 $ conda activate vitis-ai-caffe
 (vitis-ai-caffe) $ cd DPU-TRD-ULTRA96
 (vitis-ai-caffe) $ cd modelzoo
+
+```  
+Create a directory for the compiled models
+```
+(vitis-ai-caffe) $ mkdir compiled_output
 ```
  
 Compile the caffe model for the resnet50 application, using the generic script that you downloaded:
@@ -107,8 +112,6 @@ kernel list info for network "resnet50"
  
 
 
-
-
 Compile the tensorflow models, using the generic script:
  
 ```
@@ -159,15 +162,11 @@ kernel list info for network "tf_resnet50"
         resnet_v1_50_predictions_Softmax : 1*1*1000
 
 
-Create a file named “custom.json” with the following content
+Exit the tools docker
 ```
-{"target": "dpuv2", "dcf": "./{platform}.dcf", "cpu_arch": "arm64"}
+(vitis-ai-caffe) $ exit
 ```
  
  
-Create a directory for the compiled models
-```  
-(vitis-ai-caffe) $ mkdir compiled_output
-```
-Create a generic recipe for compiling a caffe model, by creating a script named “compile_cf_model.sh” with the following content 
+
 
