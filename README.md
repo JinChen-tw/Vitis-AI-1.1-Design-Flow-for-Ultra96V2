@@ -31,26 +31,8 @@ $ export TRD_HOME=$VITIS_AI_HOME/DPU-TRD-ULTRA96
 $ cd $VITIS_AI_HOME
 $ sh -x docker_run.sh xilinx/vitis-ai 
 ```
-\ \    / (_) | (_)            /\   |_   _|
- \ \  / / _| |_ _ ___ ______ /  \    | |  
-  \ \/ / | | __| / __|______/ /\ \   | |  
-   \  /  | | |_| \__ \     / ____ \ _| |_ 
-    \/   |_|\__|_|___/    /_/    \_\_____|
+https://github.com/JinChen-tw/Vitis-AI-1.1-Design-Flow-for-Ultra96V2/blob/master/images/%E6%93%B7%E5%8F%96001.PNG
 
-==========================================
-
-Docker Image Version: latest
-Build Date: Fri Jul  3 03:54:48 MDT 2020
-VAI_ROOT=/opt/vitis_ai
-For TensorFlow Workflows do:
-  conda activate vitis-ai-tensorflow
-For Caffe Workflows do:
-  conda activate vitis-ai-caffe
-For Neptune Workflows do:
-  conda activate vitis-ai-neptune
-More detail on conda packages included in container: /opt/vitis_ai/conda/conda_packages.txt
-More detail on other 3rd party package source included in container: https://www.xilinx.com/products/design-tools/guest-resources.html
-jin2@ubuntu:/workspace$
 ```
 $ conda activate vitis-ai-caffe
 (vitis-ai-caffe) $ cd DPU-TRD-ULTRA96
