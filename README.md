@@ -70,7 +70,7 @@ Exit the tools docker
 
 1. Change to the DPU-TRD-ULTRA96 work directory.
 ```
-(vitis-ai-caffe) $ exit
+(vitis-ai-caffe) $ cd DPU-TRD-ULTRA96 
 ```
 
 
@@ -79,13 +79,13 @@ Exit the tools docker
 ```
 $ wget -O sdk.sh https://www.xilinx.com/bin/public/openDownload?filename=sdk.sh
 $ chmod +x sdk.sh
-$ ./sdk.sh -d ~/petalinux_sdk_vai_1_1_dnndk
+$ ./sdk.sh -d $VITIS_AI_HOME
 ```
 3. Setup the environment for cross-compilation
 
 ```
 $ unset LD_LIBRARY_PATH
-$ source ~/petalinux_sdk_vai_1_1_dnndk/environment-setup-aarch64-xilinx-linux
+$ source $VITIS_AI_HOME/petalinux_sdk_vai_1_1_dnndk/environment-setup-aarch64-xilinx-linux
 ```
 4. Download and extract the additional DNNDK runtime content to the previously installed SDK
 ```
@@ -94,10 +94,14 @@ $ tar -xvzf vitis-ai-v1.1_dnndk.tar.gz
 ```
 5. Install the additional DNNDK runtime content to the previously installed SDK
 
+```
 $ cd vitis-ai-v1.1_dnndk
-$ ./install.sh $SDKTARGETSYSROOT
+$ ./install.sh $VITIS_AI_HOME/petalinux_sdk_vai_1_1_dnndk/sysroots/aarch64-xilinx-linux
+```
+
 6. Make a working copy of the “vitis_ai_dnndk_samples” directory.
 ```
+$ cd DPU-TRD-ULTRA96 
 $ cp -r ../mpsoc/vitis_ai_dnndk_samples .
 ```
 7. Download and extract the additional content (images and video files) for the DNNDK samples.
@@ -108,15 +112,48 @@ $ tar -xvzf vitis-ai_v1.1_dnndk_sample_img.tar.gz
 
 #### RESNET50
 
-11. For the resnet50 application, create a model directory and copy the dpu_*.elf model files we previously built
-
+1. For the resnet50 application, create a model directory and copy the dpu_*.elf model files we previously built
+```
 $ cd $TRD_HOME/vitis_ai_dnndk_samples/resnet50
-$ mkdir model_for_{platform}
-$ cp ../../modelzoo/compiled_output/cf_resnet50_imagenet_224_224_7.7G/dpu_*.elf model_for_{platform}/.
-12. For the resnet50 application, copy the “model_for_{platform}” directory to “model”, then run the “make” command
-
-$ cp -r model_for_{platform} model
+$ mkdir model_for_ultra96
+$ cp ../../modelzoo/compiled_output/cf_resnet50_imagenet_224_224_7.7G/dpu_*.elf model_for_ultra96/.
+```
+2. For the resnet50 application, copy the “model_for_ultra96” directory to “model”, then run the “make” command
+```
+$ cp -r model_for_ultra96 model
 $ make
+```
+![](./images/image004.PNG)
+
+#### Execute the AI applications on hardware
+1. Boot the target board with the sdcard.
+```
+$ ifconfig eth0 192.168.0.10
+```
+
+2. 
+```
+$ scp resnet50 root@192.168.0.10:~/vitis_ai_dnndk_samples/resnet50/
+```
+
+3. Define the DISPLAY environment variable
+```
+$ export DISPLAY=:0.0
+```
+4. Change the resolution of the DP monitor to 640x480
+```
+$ xrandr --output DP-1 --mode 640x480
+```
+5. Launch the DNNDK API based sample applications
+```
+$ cd vitis_ai_dnndk_samples
+```
+6. Launch the caffe version of the resnet50 application
+```
+$ cd resnet50
+$ ./resnet50
+```
+
  
  
 
