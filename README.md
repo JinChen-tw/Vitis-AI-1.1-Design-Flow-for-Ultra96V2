@@ -31,8 +31,7 @@ $ export TRD_HOME=$VITIS_AI_HOME/DPU-TRD-ULTRA96
 $ cd $VITIS_AI_HOME
 $ sh -x docker_run.sh xilinx/vitis-ai 
 ```
-https://github.com/JinChen-tw/Vitis-AI-1.1-Design-Flow-for-Ultra96V2/blob/master/images/%E6%93%B7%E5%8F%96001.PNG
-
+![](./images/image001.PNG)
 ```
 $ conda activate vitis-ai-caffe
 (vitis-ai-caffe) $ cd DPU-TRD-ULTRA96
