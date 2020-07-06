@@ -132,7 +132,7 @@ $ ifconfig eth0 192.168.0.10
 ```
 
 2. Download the execute file from host to the target using scp with the following command 
-## (On host machine)
+#### (On host machine)
 ```
 $ scp resnet50 root@192.168.0.10:~/vitis_ai_dnndk_samples/resnet50/
 ```
