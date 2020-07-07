@@ -18,7 +18,7 @@ $ cd $VITIS_AI_HOME/AI-Model-Zoo
 $ source ./get_model.sh 
 ```
  
-3.Download the DPU-TRD directory for your platform:
+3. Download the DPU-TRD directory for your platform:
  
 ```
 $ git clone https://github.com/JinChen-tw/Vitis-AI-1.1-Flow-for-Ultra96
@@ -38,12 +38,12 @@ $ conda activate vitis-ai-caffe
 (vitis-ai-caffe) $ cd modelzoo
 
 ```  
-Create a directory for the compiled models
+5. Create a directory for the compiled models
 ```
 (vitis-ai-caffe) $ mkdir compiled_output
 ```
  
-Compile the caffe model for the resnet50 application, using the generic script that you downloaded:
+6. Compile the caffe model for the resnet50 application, using the generic script that you downloaded:
 ```
 (vitis-ai-caffe) $ source ./compile_cf_model.sh resnet50 cf_resnet50_imagenet_224_224_7.7G
 ```
@@ -61,7 +61,7 @@ $ conda activate vitis-ai-tensorflow
 ![](./images/image003.PNG)
 
 
-Exit the tools docker
+7. Exit the tools docker
 ```
 (vitis-ai-caffe) $ exit
 ```
@@ -126,7 +126,7 @@ $ make
 ![](./images/image004.PNG)
 
 #### Execute the AI applications on hardware
-1. Boot the target board with the sdcard.
+1. Boot the target board with the sdcard. And setting the board IP address.
 ```
 $ ifconfig eth0 192.168.0.10
 ```
