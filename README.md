@@ -70,7 +70,7 @@ $ conda activate vitis-ai-tensorflow
 
 1. Change to the DPU-TRD-ULTRA96 work directory.
 ```
-(vitis-ai-caffe) $ cd DPU-TRD-ULTRA96 
+$ cd DPU-TRD-ULTRA96 
 ```
 
 
