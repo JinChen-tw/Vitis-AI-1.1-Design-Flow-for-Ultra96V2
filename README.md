@@ -1,4 +1,7 @@
 # Vitis-AI-1.1 Design Flow for Ultra96
+## reference
+https://www.hackster.io/AlbertaBeef/vitis-ai-1-1-flow-for-avnet-vitis-platforms-part-1-007b0e
+
 ## Quick Start
 
 1. Clone Xilinx’s Vitis-AI github repository: 
